@@ -16,3 +16,10 @@
 //= require_tree .
 
 //= require bootstrap-sass/assets/javascripts/bootstrap-sprockets 
+
+//= require js/bootstrap-checkbox-radio-switch
+//= require js/bootstrap-notify
+//= require js/bootstrap-select
+//= require js/chartist.min
+//= require js/light-bootstrap-dashboard
+//= require js/demo

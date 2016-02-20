@@ -14,6 +14,3 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-
-//var foo = require('./foo');
-console.log("CHULAS"));

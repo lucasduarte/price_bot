@@ -1,0 +1,49 @@
+<%= form_for(@website) do |f| %>
+  <% if @website.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@website.errors.count, "error") %> prohibited this website from being saved:</h2>
+
+      <ul>
+      <% @website.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :link %><br>
+    <%= f.text_field :link %>
+  </div>
+  <div class="field">
+    <%= f.label :logo %><br>
+    <%= f.text_field :logo %>
+  </div>
+  <div class="field">
+    <%= f.label :regular_price_tag %><br>
+    <%= f.text_field :regular_price_tag %>
+  </div>
+  <div class="field">
+    <%= f.label :discounted_price_tag %><br>
+    <%= f.text_field :discounted_price_tag %>
+  </div>
+  <div class="field">
+    <%= f.label :product_description_tag %><br>
+    <%= f.text_field :product_description_tag %>
+  </div>
+  <div class="field">
+    <%= f.label :product_image_tag %><br>
+    <%= f.text_field :product_image_tag %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br>
+    <%= f.check_box :status %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

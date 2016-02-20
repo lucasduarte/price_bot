@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @website.name %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @website.link %>
+</p>
+
+<p>
+  <strong>Logo:</strong>
+  <%= @website.logo %>
+</p>
+
+<p>
+  <strong>Regular price tag:</strong>
+  <%= @website.regular_price_tag %>
+</p>
+
+<p>
+  <strong>Discounted price tag:</strong>
+  <%= @website.discounted_price_tag %>
+</p>
+
+<p>
+  <strong>Product description tag:</strong>
+  <%= @website.product_description_tag %>
+</p>
+
+<p>
+  <strong>Product image tag:</strong>
+  <%= @website.product_image_tag %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @website.status %>
+</p>
+
+<%= link_to 'Edit', edit_website_path(@website) %> |
+<%= link_to 'Back', websites_path %>

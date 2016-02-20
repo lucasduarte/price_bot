@@ -1,49 +1,89 @@
 <%= form_for(@website) do |f| %>
-  <% if @website.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@website.errors.count, "error") %> prohibited this website from being saved:</h2>
+	<div class="row">
+		<div class="col-md-12">
+			<% if @website.errors.any? %>
+				<div id="error_explanation">
+					<h2><%= pluralize(@website.errors.count, "error") %> prohibited this website from being saved:</h2>
 
-      <ul>
-      <% @website.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+					<ul>
+					<% @website.errors.full_messages.each do |message| %>
+						<li><%= message %></li>
+					<% end %>
+					</ul>
+				</div>
+			<% end %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-group">
+				<%= f.label :name %>
+				<%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+			</div>
+		</div>
+		
+		<div class="col-md-8">
+			<div class="form-group">
+				<%= f.label :link %>
+				<%= f.text_field :link, class: "form-control", placeholder: "Link" %>
+			</div>
+		</div>
+	</div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :link %><br>
-    <%= f.text_field :link %>
-  </div>
-  <div class="field">
-    <%= f.label :logo %><br>
-    <%= f.text_field :logo %>
-  </div>
-  <div class="field">
-    <%= f.label :regular_price_tag %><br>
-    <%= f.text_field :regular_price_tag %>
-  </div>
-  <div class="field">
-    <%= f.label :discounted_price_tag %><br>
-    <%= f.text_field :discounted_price_tag %>
-  </div>
-  <div class="field">
-    <%= f.label :product_description_tag %><br>
-    <%= f.text_field :product_description_tag %>
-  </div>
-  <div class="field">
-    <%= f.label :product_image_tag %><br>
-    <%= f.text_field :product_image_tag %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.check_box :status %>
-  </div>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="form-group">
+				<%= f.label :logo %>
+				<%= f.text_field :logo, class: "form-control", placeholder: "Logo" %>
+			</div>
+		</div>
+		
+		<div class="col-md-8">
+			<div class="form-group">
+				<%= f.label :regular_price_tag %>
+				<%= f.text_field :regular_price_tag, class: "form-control", placeholder: "Regular Price Tag" %>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<div class="form-group">
+				<%= f.label :discounted_price_tag %>
+				<%= f.text_field :discounted_price_tag, class: "form-control", placeholder: "Discounted Price Tag" %>
+			</div>
+		</div>
+		
+		<div class="col-md-6">
+			<div class="form-group">
+				<%= f.label :product_description_tag %>
+				<%= f.text_field :product_description_tag, class: "form-control", placeholder: "Product Description Tag" %>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-8">
+			<div class="form-group">
+				<%= f.label :product_image_tag %>
+				<%= f.text_field :product_image_tag, class: "form-control", placeholder: "Product Image Tag" %>
+			</div>
+		</div>
+		
+		<div class="col-md-4">
+			<div class="form-group">
+				<%= f.label :status %>
+				<label class="checkbox">
+					<span class="icons">
+						<span class="first-icon fa fa-square-o"></span>
+						<span class="second-icon fa fa-check-square-o"></span>
+					</span>
+					<%= f.check_box :status, class: "form-control" %>
+				</label>	
+			</div>
+		</div>
+	</div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-info btn-fill" %>
   </div>
 <% end %>

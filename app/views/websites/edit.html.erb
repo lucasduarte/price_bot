@@ -1,6 +1,18 @@
-<h1>Editing Website</h1>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="header">
+					<h4 class="title">Editing Website</h1>
+				</div>
+				<div class="content">
+					<%= render 'form' %>
+				</div>
+				<%= link_to 'Show', @website %> |
+				<%= link_to 'Back', websites_path %>
+			</div>
+		</div>	
+	</div>	
+</div>
 
-<%= render 'form' %>
 
-<%= link_to 'Show', @website %> |
-<%= link_to 'Back', websites_path %>

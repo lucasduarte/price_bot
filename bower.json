@@ -1,0 +1,13 @@
+{
+  "name": "price_bot",
+  "version": "1.0.0",
+  "dependencies": {
+    "bootstrap-sass": "^3.3.6"
+  },
+  "devDependencies": {},
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "test"
+  ]
+}

@@ -1,39 +1,57 @@
-<p id="notice"><%= notice %></p>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="header">
+					<h4 class="title">Product Info</h4>
+				</div>
+				<div class="content">			
+					<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+					<p>
+						<strong>Description:</strong>
+						<%= @product.description %>
+					</p>
 
-<p>
-  <strong>Link:</strong>
-  <%= @product.link %>
-</p>
+					<p>
+						<strong>Link:</strong>
+						<%= @product.link %>
+					</p>
 
-<p>
-  <strong>Image:</strong>
-  <%= @product.image %>
-</p>
+					<p>
+						<strong>Image:</strong>
+						<%= @product.image %>
+					</p>
 
-<p>
-  <strong>Last price:</strong>
-  <%= @product.last_price %>
-</p>
+					<p>
+						<strong>Last price:</strong>
+						<%= @product.last_price %>
+					</p>
 
-<p>
-  <strong>Alert range:</strong>
-  <%= @product.alert_range %>
-</p>
+					<p>
+						<strong>Alert range:</strong>
+						<%= @product.alert_range %>
+					</p>
 
-<p>
-  <strong>Website:</strong>
-  <%= @product.website_id %>
-</p>
+					<p>
+						<strong>Website:</strong>
+						<%= @product.website_id %>
+					</p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @product.category_id %>
-</p>
+					<p>
+						<strong>Category:</strong>
+						<%= @product.category_id %>
+					</p>
+					
+				</div>
+				<%= link_to 'Edit', edit_product_path(@product) %> |
+				<%= link_to 'Back', products_path %>
+			</div>
+		</div>	
+	</div>	
+</div>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+
+
+
+

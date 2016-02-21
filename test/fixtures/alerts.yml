@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  link: MyString
+  image: MyString
+  last_price: 9.99
+  old_price: 9.99
+  mail_sent: false
+  visited: false
+
+two:
+  description: MyString
+  link: MyString
+  image: MyString
+  last_price: 9.99
+  old_price: 9.99
+  mail_sent: false
+  visited: false

@@ -21,7 +21,7 @@
 								<tr>
 									<td><%= website.name %></td>
 									<td><%= website.link %></td>
-									<td><%= website.logo %></td>
+									<td><%= image_tag(website.logo, height: '32', width: '45') %></td>
 									<td><%= website.status %></td>
 									<td>
 										<%= link_to(website, class: "btn btn-primary") do %>

@@ -1,25 +1,38 @@
 <%= form_for(@category) do |f| %>
-  <% if @category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+	<div class="row">
+		<div class="col-md-12">
+			<% if @category.errors.any? %>
+				<div id="error_explanation">
+					<h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-      <ul>
-      <% @category.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+					<ul>
+					<% @category.errors.full_messages.each do |message| %>
+						<li><%= message %></li>
+					<% end %>
+					</ul>
+				</div>
+			<% end %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group">
+				<%= f.label :name %>
+				<%= f.text_field :name, class: "form-control", placeholder: "Name" %>
+			</div>
+		</div>
+	</div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :alert_range %><br>
-    <%= f.number_field :alert_range %>
-  </div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="form-group">
+				<%= f.label :alert_range %>
+				<%= f.text_field :alert_range, class: "form-control", placeholder: "Alert Range" %>
+			</div>
+		</div>
+	</div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-info btn-fill" %>
   </div>
 <% end %>

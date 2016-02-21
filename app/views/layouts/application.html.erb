@@ -27,8 +27,9 @@
     -->
                 <div class="sidebar-wrapper">
                     <div class="logo">
-                        <a href="#" class="simple-text">
-                    Price Bot</a>
+											<%= link_to(root_path, :class => "simple-text") do %>
+												Price Bot
+											<% end %>             
                     </div>
                     <ul class="nav">
                         <li class="active">
@@ -38,23 +39,24 @@
                         </li>
 												<li>
 													<%= link_to(websites_path) do %>
-														<i class="pe-7s-news-paper"></i><p>Websites</p></a>
+														<i class="pe-7s-global"></i><p>Websites</p></a>
 													<% end %>
                         </li>
 												<li>
-                            <a href="#"><i class="pe-7s-note2"></i><p>Products</p></a>
+													<%= link_to(products_path) do %>
+														<i class="pe-7s-cart"></i><p>Products</p></a>
+													<% end %>
                         </li>
+												<li>
+													<%= link_to(categories_path) do %>
+														<i class="pe-7s-note2"></i><p>Categories</p></a>
+													<% end %>
+                        </li>	
 												<li>
                             <a href="#"><i class="pe-7s-bell"></i><p>Notifications</p></a>
                         </li>
                         <li>
                             <a href="#"><i class="pe-7s-user"></i><p>User Profile</p></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="pe-7s-science"></i><p>Icons</p></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="pe-7s-map-marker"></i><p>Maps</p></a>
                         </li>                     
                     </ul>
                 </div>

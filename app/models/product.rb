@@ -14,13 +14,13 @@ class Product < ActiveRecord::Base
         price = page.search(p.website.discounted_price_tag).to_s
                                                          .delete("^0-9,")
                                                          .gsub(',','.')
-                                                         .to_d.round(2)
+                                                         .to_d
 
         if price == 0
           price = page.search(p.website.regular_price_tag).to_s
                                                            .delete("^0-9,")
                                                            .gsub(',','.')
-                                                           .to_d.round(2)
+                                                           .to_d
         end
 
         range_price = p.last_price * (p.category.alert_range.to_d / 100)
@@ -58,12 +58,12 @@ class Product < ActiveRecord::Base
       price = page.search(product.website.discounted_price_tag).to_s
                                                        .delete("^0-9,")
                                                        .gsub(',','.')
-                                                       .to_d.round(2)
+                                                       .to_d
       if price == 0
         price = page.search(product.website.regular_price_tag).to_s
                                                         .delete("^0-9,")
                                                         .gsub(',','.')
-                                                        .to_d.round(2)
+                                                        .to_d
       end
 
       product.last_price = price

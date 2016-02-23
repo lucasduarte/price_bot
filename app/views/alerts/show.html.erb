@@ -1,0 +1,51 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="header">
+					<h4 class="title">Alert Info</h4>
+				</div>
+				<div class="content">			
+					<p id="notice"><%= notice %></p>
+					<p>
+						<strong>Description:</strong>
+						<%= @alert.description %>
+					</p>
+
+					<p>
+						<strong>Link:</strong>
+						<%= @alert.link %>
+					</p>
+
+					<p>
+						<strong>Image:</strong>
+						<%= @alert.image %>
+					</p>
+
+					<p>
+						<strong>Last Price:</strong>
+						R$ <%= @alert.last_price %>
+					</p>
+
+					<p>
+						<strong>Old Price:</strong>
+						R$ <%= @alert.old_price %>
+					</p>
+
+					<p>
+						<strong>Mail Sent:</strong>
+						<%= @alert.mail_sent %>
+					</p>
+
+					<p>
+						<strong>Date:</strong>
+						<%= @alert.created_at %>
+					</p>
+
+					
+				</div>
+				<%= link_to 'Back', alerts_path %>
+			</div>
+		</div>	
+	</div>	
+</div>

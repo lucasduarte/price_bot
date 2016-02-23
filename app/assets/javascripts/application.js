@@ -12,8 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require_self
 //= require_tree .
+//= require turbolinks
 
 //= require bootstrap-sass/assets/javascripts/bootstrap-sprockets 
 
@@ -23,3 +24,11 @@
 //= require js/chartist.min
 //= require js/light-bootstrap-dashboard
 //= require js/demo
+
+$(document).on('ready page:load', function() {
+	$(".nav").find(".active").removeClass("active");
+	$('a[href="' + this.location.pathname + '"]').parent().addClass('active');
+});
+
+
+

@@ -21,8 +21,13 @@
 								<tr>
 									<td><%= website.name %></td>
 									<td><%= website.link %></td>
-									<td><%= image_tag(website.logo, height: '32', width: '45') %></td>
-									<td><%= website.status %></td>
+									<td><%= image_tag(website.logo, height: '80', width: '100') %></td>
+									<td>
+										<% if website.status %>
+											<i class="fa fa-circle text-success"></i>
+										<% else %>
+											<i class="fa fa-circle text-danger"></i>
+										<% end %>
 									<td>
 										<%= link_to(website, class: "btn btn-primary") do %>
 											<i class="fa fa-eye"></i>

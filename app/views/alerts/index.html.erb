@@ -11,7 +11,6 @@
 						<thead>
 							<th>Image</th>
 							<th>Description</th>
-							<th>Link</th>
 							<th>Old Price</th>
 							<th>Last Price</th>
 							<th>Mail Sent</th>
@@ -20,12 +19,18 @@
 						<tbody>
 							<% @alerts.each do |alert| %>
 								<tr>
-									<td><%= alert.image %></td>
-									<td><%= alert.description %></td>
-									<td><%= alert.link %></td>
-									<td><%= alert.old_price %></td>
-									<td><%= alert.last_price %></td>
-									<td><%= alert.mail_sent %></td>
+									<td><%= image_tag(alert.image, width: '132', height: '132') %></td>
+									<td><%= link_to(alert.description, alert.link, target: "_blank") %></td>
+									<td>R$ <%= alert.old_price %></td>
+									<td>R$ <%= alert.last_price %></td>
+									<td>
+										<% if alert.mail_sent %>
+											<i class="fa fa-circle text-success"></i>
+										<% else %>
+											<i class="fa fa-circle text-danger"></i>
+										<% end %>
+									</td>
+											
 									<td>
 										<%= link_to(alert, class: "btn btn-primary") do %>
 											<i class="fa fa-eye"></i>

@@ -11,7 +11,6 @@
 					<table class="table table-hover table-striped">
 						<thead>
 							<th>Description</th>
-							<th>Link</th>
 							<th>Image</th>
 							<th>Last price</th>
 							<th>Alert range</th>
@@ -22,13 +21,12 @@
 						<tbody>
 							<% @products.each do |product| %>
 								<tr>
-									<td><%= product.description %></td>
-									<td><%= product.link %></td>
-									<td><%= product.image %></td>
-									<td><%= product.last_price %></td>
-									<td><%= product.alert_range %></td>
-									<td><%= product.website_id %></td>
-									<td><%= product.category_id %></td>
+									<td><%= link_to(product.description, product.link, target: "_blank") %></td>
+									<td><%= image_tag(product.image, height: '132', width: '132') %></td>
+									<td>R$ <%= product.last_price %></td>
+									<td><%= product.alert_range %>%</td>
+									<td><%= image_tag(product.website.logo, height: '80', width: '100')%></td>
+									<td><%= product.category.name %></td>
 									<td>
 										<%= link_to(product, class: "btn btn-primary") do %>
 											<i class="fa fa-eye"></i>

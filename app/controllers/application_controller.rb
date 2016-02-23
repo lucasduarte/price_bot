@@ -4,8 +4,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 	
 	before_action :authenticate_user!
+	before_filter :set_alerts_count
 	
-	def get_alerts_count
-		Alert.all(:conditions => { :visited => false }).count
+	def set_alerts_count
+		@alerts_count = count = Alert.where(:visited => false).count
 	end
 end

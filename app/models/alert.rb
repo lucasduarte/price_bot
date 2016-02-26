@@ -3,7 +3,8 @@ class Alert < ActiveRecord::Base
 		alerts = Alert.where(:mail_sent => false)
     alerts.each do |alert|
       Alert.send_mail alert
-      #alert.destroy
+			alert.mail_sent = true
+			alert.save
     end
   end
 

@@ -103,6 +103,8 @@ GEM
     ntlm-http (0.1.1)
     orm_adapter (0.5.0)
     pg (0.18.4)
+    procurator (0.1.0)
+      mechanize
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -193,6 +195,7 @@ DEPENDENCIES
   jquery-rails
   mechanize
   pg (~> 0.15)
+  procurator
   pry
   rails (= 4.2.5.1)
   sass-rails (~> 5.0)

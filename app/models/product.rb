@@ -7,21 +7,15 @@ class Product < ActiveRecord::Base
     begin
       products = Product.all
       products.each do |p|
-        agent = Mechanize.new
-        page = agent.get(p.link)
+				
+				data = Hash.new
 
-        agent.shutdown()
-        price = page.search(p.website.discounted_price_tag).to_s
-                                                         .delete("^0-9,")
-                                                         .gsub(',','.')
-                                                         .to_d
-
-        if price == 0
-          price = page.search(p.website.regular_price_tag).to_s
-                                                           .delete("^0-9,")
-                                                           .gsub(',','.')
-                                                           .to_d
-        end
+				data["regular_price"] = p.website.discounted_price_tag
+				data["discounted_price"] = p.website.discounted_price_tag
+				
+				result = Procurator.new.search p.link, data
+				
+				price = result["regular_price"].to_s.delete("^0-9,").gsub(',','.').to_d
 
         range_price = p.last_price * (p.category.alert_range.to_d / 100)
 
@@ -39,9 +33,9 @@ class Product < ActiveRecord::Base
 
         if price > 0
           p.last_price = price
+					p.save
         end
-
-        p.save
+				
         Alert.check_alerts
       end
     rescue => ex
@@ -50,30 +44,26 @@ class Product < ActiveRecord::Base
 
   end
 
-  def Product.first_search product
-    begin
-      agent = Mechanize.new
-      page = agent.get(product.link)
-      agent.shutdown()
-      price = page.search(product.website.discounted_price_tag).to_s
-                                                       .delete("^0-9,")
-                                                       .gsub(',','.')
-                                                       .to_d
-      if price == 0
-        price = page.search(product.website.regular_price_tag).to_s
-                                                        .delete("^0-9,")
-                                                        .gsub(',','.')
-                                                        .to_d
-      end
-
-      product.last_price = price
-      product.image = page.search(product.website.product_image_tag).first
-      product.description = page.search(product.website.product_description_tag).first
+	
+	def Product.first_search product
+		data = Hash.new
+		
+		data["discounted_price"] = product.website.discounted_price_tag
+		data["regular_price"] = product.website.regular_price_tag
+		data["image"] = product.website.product_image_tag
+		data["description"] = product.website.product_description_tag
+		
+		p = Procurator.new
+		result = p.search product.link, data
+		
+		price = result["regular_price"].to_s.delete("^0-9,").gsub(',','.').to_d
+		
+		if price > 0
+			product.last_price = price
+			product.image = result["image"]
+			product.description = result["description"]
 			
-      product.save
-    rescue => ex
-			debugger
-      ex.message
-    end
-  end
+			product.save
+		end
+	end
 end

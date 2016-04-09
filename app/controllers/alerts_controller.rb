@@ -16,6 +16,11 @@ class AlertsController < ApplicationController
     end
   end
 	
+	def check_alerts
+		Product.update_price
+		redirect_to alerts_url
+	end
+	
 	private
 		def set_alert
 			@alert = Alert.find(params[:id])

@@ -3,7 +3,7 @@ lock '3.4.0'
 
 set :application, 'price_bot'
 set :repo_url, 'git@github.com:lucasduarte/price_bot.git'
-
+set :passenger_restart_with_touch, true
 set :deploy_to, '/home/deploy/price_bot'
 
 set :linked_files, %w{config/database.yml}

@@ -3,10 +3,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 	
-	before_action :authenticate_user!
+	#before_action :authenticate_user!
 	before_filter :set_alerts_count
 	
 	def set_alerts_count
-		@alerts_count = count = Alert.where(:visited => false).count
+		#@alerts_count = count = Alert.where(:visited => false).count
 	end
 end

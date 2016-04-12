@@ -5,7 +5,7 @@ class Product < ActiveRecord::Base
 	
 	def Product.update_price
     begin
-      products = Product.all
+			products = Product.where(:status => true)
       products.each do |p|
 				
 				data = Hash.new
@@ -19,24 +19,29 @@ class Product < ActiveRecord::Base
 
         range_price = p.last_price * (p.category.alert_range.to_d / 100)
 
-        if price < range_price and price > 0
-          alert = Alert.new
-          alert.description = p.description
-          alert.link = p.link
-          alert.image = p.image
-          alert.old_price = p.last_price
-          alert.last_price = price
-					alert.mail_sent = false
-					alert.visited = false
-          alert.save
-        end
-
-        if price > 0
-          p.last_price = price
-					p.save
-        end
+				if price > 0
+					p.last_price = price	
+					
+					if price < range_price
+						alert = Alert.new
+						alert.description = p.description
+						alert.link = p.link
+						alert.image = p.image
+						alert.old_price = p.last_price
+						alert.last_price = price
+						alert.mail_sent = false
+						alert.visited = false
+						alert.save
+					end
+				else
+					if p.fail_count == 4
+						p.status = false
+					end
+					p.fail_count += 1		
+				end
 				
-        Alert.check_alerts
+				p.save
+        #Alert.check_alerts
       end
     rescue => ex
       ex.message
